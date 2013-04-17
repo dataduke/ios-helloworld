@@ -67,7 +67,7 @@
     
     self.label = [[UILabel alloc]
                   initWithFrame:CGRectMake(115.0f, 150.0f, 200.0f, 30.0f)];
-    self.label.text = @"";
+    self.label.text = @"Enter your name above.";
     [self.view addSubview:self.label];
     
 }
@@ -76,7 +76,12 @@
     NSString *helloString = @"Hello ";
     
     // set label
-    self.label.text = [helloString stringByAppendingString:(self.textField.text)];
+    if ( self.textField.text != nil)
+    {
+        self.label.text = [helloString stringByAppendingString:(self.textField.text)];
+    } else {
+    self.label.text = @"Bazinga!";
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
